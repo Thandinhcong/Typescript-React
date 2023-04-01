@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",// tạo thêm thư mục
+        "watch": true,
+        "strictNullChecks": false
+    },
+    "include": ["src"],
+}

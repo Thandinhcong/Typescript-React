@@ -1,0 +1,9 @@
+.pay{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-gap: 5px;
+}
+.footer p:hover{
+color: red;
+box-shadow: 0 2px 0px 0px red;
+}
