@@ -7,3 +7,27 @@
 color: red;
 box-shadow: 0 2px 0px 0px red;
 }
+/* signin */
+.signin{
+  width: 800px;
+  margin: auto;
+  line-height: 300%;
+  margin-top: 20px;
+}
+.logo{
+  margin: auto 0;
+}
+.form-signin h5 {
+  text-align: center;
+}
+.icon  img{
+  width: 50px;
+  margin-left: 30px; 
+}
+.icon{
+  margin-left: 150px;
+}
+/* navbar */
+.menu hr{
+  box-shadow:0 5px  0 0px rgba(0, 0, 0, 0.5);
+}
