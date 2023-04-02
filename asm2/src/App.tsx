@@ -6,6 +6,7 @@ import Layout from "./components/layout";
 import Signup from "./components/signup";
 import Signin from "./components/signin";
 import MainDeltailProduct from "./components/main-deltail-product";
+import Cart from "./pages/cart";
 function App() {
 
   return <BrowserRouter>
@@ -14,8 +15,9 @@ function App() {
         <Route index element={<HomeFage />} />
       </Route>
       <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />\
+      <Route path="/signin" element={<Signin />} />
       <Route path="/deltail-product" element={<MainDeltailProduct />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   </BrowserRouter>
 
