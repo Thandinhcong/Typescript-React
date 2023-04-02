@@ -7,6 +7,7 @@ import Signup from "./components/signup";
 import Signin from "./components/signin";
 import MainDeltailProduct from "./components/main-deltail-product";
 import Cart from "./pages/cart";
+import AdminProduct from "./components/admin/product";
 function App() {
 
   return <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signin" element={<Signin />} />
       <Route path="/deltail-product" element={<MainDeltailProduct />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/admin" element={<AdminProduct />} />
     </Routes>
   </BrowserRouter>
 

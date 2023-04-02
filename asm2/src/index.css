@@ -99,3 +99,18 @@
   border-radius: 5px;
   margin-top: 8px;
 }
+
+/* .cart */
+.back-item {
+  margin-bottom: 5px;
+}
+
+.Cart-deltail {
+  width: 1000px;
+  margin: auto;
+}
+
+.cart-icon-delete {
+  position: relative;
+  left: 500;
+}

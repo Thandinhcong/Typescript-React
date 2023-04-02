@@ -44,24 +44,26 @@ const Footer = () => {
                 <p>Tuyển dụng</p>
             </div>
         </div>
-        <div className="info-product row row-cols-3 p-5">
-            <div className="deltai-product">
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+        <div className="bg-secondary">
+            <div className="info-product row row-cols-3 p-5">
+                <div className="deltai-product">
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                </div>
+                <div className="deltai-product">
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                </div>
+                <div className="deltai-product">
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                    <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
+                </div>
             </div>
-            <div className="deltai-product">
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-            </div>
-            <div className="deltai-product">
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-                <p>Điện thoại iPhone 13-Đien thoại iPhone 12 -Điện thoại iPhone 11</p>
-            </div>
+            <p className="p-5">Công ty TNHH Thương mại và dịch vụ kỹ thuật DIỆU PHÚC - GPĐKKD: 0316172372 do sở KH & ĐT TP. HCM cấp ngày 02/03/2020. Địa chỉ: 350-352 Võ Văn Kiệt, Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh, Việt Nam. Điện thoại: 028.7108.9666.</p>
         </div>
-        <p className="p-5">Công ty TNHH Thương mại và dịch vụ kỹ thuật DIỆU PHÚC - GPĐKKD: 0316172372 do sở KH & ĐT TP. HCM cấp ngày 02/03/2020. Địa chỉ: 350-352 Võ Văn Kiệt, Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh, Việt Nam. Điện thoại: 028.7108.9666.</p>
     </footer>
 
 }
