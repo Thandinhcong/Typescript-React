@@ -31,7 +31,7 @@ const AdminCate = () => {
                 <p className="mt-2">ÂM thanh</p>
             </div>
         </Link>
-        <Link to="/user" className="text-decoration-none text-dark">
+        <Link to="/admin/user" className="text-decoration-none text-dark">
             <div className="d-flex gap-1 mt-4">
                 <span className="material-symbols-outlined fs-1">
                     account_circle

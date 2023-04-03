@@ -4,7 +4,7 @@ import ListUser from "./ListUser";
 import AdminCate from "./adminCate";
 
 const ListUserAdmin = () => {
-    return <div>
+    return <div className="container-xxl">
         <HeaderAdmin />
         <div className="row row-cols-2">
             <AdminCate />

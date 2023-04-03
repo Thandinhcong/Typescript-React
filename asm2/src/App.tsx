@@ -21,7 +21,7 @@ function App() {
       <Route path="/deltail-product" element={<MainDeltailProduct />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/admin" element={<AdminProduct />} />
-      <Route path="/user" element={<ListUserAdmin />} />
+      <Route path="/admin/user" element={<ListUserAdmin />} />
     </Routes>
   </BrowserRouter>
 
