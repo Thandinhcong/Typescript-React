@@ -26,7 +26,7 @@ const ListCate = () => {
         setSelectedCategory(event.target.value);
     }
 
-    return <div className="col-9 pt-5">
+    return <div className="col-10 pt-5">
         <h3>Điện thoại</h3>
         <div>
             <div className="d-flex gap-3 mb-5">
@@ -39,7 +39,7 @@ const ListCate = () => {
                     </select>
                 </div>
             </div>
-            <table className="table table-bordered">
+            <table className="table table-bordered " style={{ overflow: "auto" }}>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -57,7 +57,7 @@ const ListCate = () => {
                                 <td>{product.name}</td>
                                 <td> {product.price} </td>
                                 <td> {product.description}</td>
-                                <td></td>
+
                                 <td>
                                     <button className="btn btn-primary me-2">Xóa</button>
                                     <button className="btn btn-primary">Sửa</button>

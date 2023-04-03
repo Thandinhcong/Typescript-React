@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 const Product = () => {
     return <div>
-
         <Link to="/deltail-product"><img src="./product1.png" alt="" /></Link>
         <div className="infoProduct mb-4">
             <a href="/deltail-product" className="text-decoration-none text-dark"><p className="fs-5 g-col-4 mb-3">iPhone 11 64GB Chính hãng VN/A</p></a>

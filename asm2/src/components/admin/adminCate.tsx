@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 const AdminCate = () => {
-    return <div className="admin-cate pt-5 col-3">
+    return <div className="admin-cate pt-5 col-2">
         <Link to="/admin" className="text-decoration-none text-dark">
             <div className="d-flex gap-1  ">
                 <span className="material-symbols-outlined fs-1">phone_android</span>

@@ -14,10 +14,10 @@ const ListUser = () => {
         // console.log(data);
 
     }, [])
-    return <div className="col-9 pt-5">
+    return <div className="col-10 pt-5">
         <h3>Tài khoản người dùng</h3>
         <div>
-            <table className="table table-bordered">
+            <table className="table table-bordered" style={{ overflow: "auto" }}>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -26,6 +26,7 @@ const ListUser = () => {
                         <th>Mật khẩu</th>
                         <th>Vai trò</th>
                         <th>Thao tác</th>
+                        <th style={{ overflow: "auto" }}></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@ const ListUser = () => {
                                     <button className="btn btn-primary me-2">Xóa</button>
                                     <button className="btn btn-primary">Sửa</button>
                                 </td>
+                                <td style={{ overflow: "auto" }}></td>
                             </tr>
                         )
                     })}

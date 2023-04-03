@@ -4,5 +4,5 @@ export interface IUser {
     email: string,
     password: string,
     confilmpassword?: string,
-    role: string,
+    role?: string,
 }
