@@ -7,6 +7,7 @@ const ListCate = () => {
                 <div>
                     <p>Danh mục sản phẩm</p>
                     <select name="" id="" className="form-select">
+                        <option value="">--Danh mục sản phẩm--</option>
                         <option value="">Điện thoại</option>
                         <option value="">Máy tính</option>
                         <option value="">Laptop</option>

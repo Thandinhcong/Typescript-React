@@ -114,3 +114,8 @@
   position: relative;
   left: 500;
 }
+
+/* admin-cate */
+.admin-cate a:hover {
+  color: red;
+}

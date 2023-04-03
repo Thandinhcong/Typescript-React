@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Signin = () => {
     return (
         <div className="signin container row ">
@@ -12,12 +13,12 @@ const Signin = () => {
                 <h5 className="mt-3">Hoặc đăng nhập bằng</h5>
                 <div className="icon mt-3">
 
-                    <a href="#"><img src="https://img.icons8.com/fluency/48/null/facebook-new.png" /></a>
-                    <a href="#"><img src="https://img.icons8.com/cute-clipart/64/null/google-logo.png" /></a>
+                    <Link to="#"><img src="https://img.icons8.com/fluency/48/null/facebook-new.png" /></Link>
+                    <Link to="#"><img src="https://img.icons8.com/cute-clipart/64/null/google-logo.png" /></Link>
                 </div>
             </div>
             <div className="logo col-4">
-                <a href="/"><img src="./thantran.png" alt="" /></a>
+                <Link to="/"><img src="./thantran.png" alt="" /></Link>
             </div>
         </div>
     )

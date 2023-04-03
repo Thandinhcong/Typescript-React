@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DelTailProduct = () => {
     return <div className="">
         <h3 style={{ marginLeft: "300px" }} className="mb-5">Samsung Galaxy A73 (5G) 256GB</h3>
@@ -11,10 +13,10 @@ const DelTailProduct = () => {
         <section className=" row row-cols-2 p-5">
             <section className="deltail-product-img mt-5">
                 <section className="icon-img1 ">
-                    <a href="#" className="text-decoration-none">
+                    <Link to="#" className="text-decoration-none">
                         <img src="https://img.icons8.com/ios/50/null/filled-star.png" />
                         <p className="mt-3">Tính năng nổi bật</p>
-                    </a>
+                    </Link>
                 </section>
                 <img className="icon-img" src="/samsung.png" alt="" />
                 <img className="icon-img" src="/samsung.png" alt="" />
@@ -22,9 +24,9 @@ const DelTailProduct = () => {
                 <img className="icon-img" src="/samsung.png" alt="" />
             </section>
             <section className="cart">
-                <a href="/cart"> <button className="btn btn-danger text-light">Mua ngay</button></a>
+                <Link to="/cart"> <button className="btn btn-danger text-light">Mua ngay</button></Link>
                 <section className="cart-item">
-                    <a href="/cart" className="text-decoration-none" ><span className="material-symbols-outlined text-danger">shopping_cart</span></a>
+                    <Link to="/cart" className="text-decoration-none" ><span className="material-symbols-outlined text-danger">shopping_cart</span></Link>
                     <p>Thêm vào <br /> giỏ hàng</p>
                 </section>
             </section>

@@ -8,6 +8,7 @@ import Signin from "./components/signin";
 import MainDeltailProduct from "./components/main-deltail-product";
 import Cart from "./pages/cart";
 import AdminProduct from "./components/admin/product";
+import ListUserAdmin from "./components/admin/users";
 function App() {
 
   return <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
       <Route path="/deltail-product" element={<MainDeltailProduct />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/admin" element={<AdminProduct />} />
+      <Route path="/user" element={<ListUserAdmin />} />
     </Routes>
   </BrowserRouter>
 
