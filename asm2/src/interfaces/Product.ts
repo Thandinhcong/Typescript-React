@@ -1,6 +1,7 @@
 export interface Iproduct {
-    _id?: String | Number,
-    price: Number,
-    name: String,
-    description: String,
+    _id?: string | number,
+    price: number,
+    name: string,
+    description: string,
+    category: string,
 }

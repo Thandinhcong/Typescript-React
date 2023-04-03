@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react"
 import { Iproduct } from "../../interfaces/Product";
 import axios from "axios";
+import { ICategory } from "../../interfaces/category";
+
 const ListCate = () => {
     const [products, setProducts] = useState<Iproduct[]>([]);
-    const [categories, setCategories] = useState<any[]>([]);
-    useEffect(() => {
-        axios.get("http://localhost:8082/api/products")
-            .then(({ data }) => {
-                setProducts(Array.from(data));
-                console.log("data: ", data);
+    const [categories, setCategories] = useState<ICategory[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<string>('');
 
-            })
+    useEffect(() => {
         axios.get("http://localhost:8082/api/categorys")
             .then(({ data }) => {
-                setCategories(data);
+                setCategories(data.categorys);
             });
     }, [])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8082/api/products?category=${selectedCategory}`)
+            .then(({ data }) => {
+                setProducts(data.products);
+            });
+    }, [selectedCategory])
+
+    const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedCategory(event.target.value);
+    }
+
     return <div className="col-9 pt-5">
         <h3>Điện thoại</h3>
         <div>
@@ -23,9 +33,9 @@ const ListCate = () => {
                 <p className="mt-4">Bộ lọc :</p>
                 <div>
                     <p>Danh mục sản phẩm</p>
-                    <select name="" id="" className="form-select">
+                    <select name="" id="" className="form-select" onChange={handleCategoryChange}>
                         <option value="">--Danh mục sản phẩm--</option>
-                        {categories.map((category) => (<option value={category.id}>{category.name}</option>))}
+                        {categories.map((category) => (<option key={category._id} value={category._id}>{category.name}</option>))}
                     </select>
                 </div>
             </div>
@@ -42,7 +52,7 @@ const ListCate = () => {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            <tr key={index}>
+                            <tr key={product._id}>
                                 <td>{index + 1}</td>
                                 <td>{product.name}</td>
                                 <td> {product.price} </td>
@@ -61,4 +71,5 @@ const ListCate = () => {
         </div>
     </div>
 }
+
 export default ListCate;

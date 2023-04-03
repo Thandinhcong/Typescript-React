@@ -1,8 +1,8 @@
 export interface IUser {
-    _id?: Number | String,
-    name?: String,
-    email: String,
-    password: String,
-    confilmpassword?: String,
-    role: String,
+    _id?: number | string,
+    name?: string,
+    email: string,
+    password: string,
+    confilmpassword?: string,
+    role: string,
 }

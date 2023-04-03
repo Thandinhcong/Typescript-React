@@ -8,7 +8,7 @@ const ListUser = () => {
         axios.get("http://localhost:8082/api/users")
             .then(({ data }) => {
 
-                setUsers(data);
+                setUsers(data.users);
                 console.log(data);
             })
         // console.log(data);
