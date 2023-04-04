@@ -1,7 +1,8 @@
-// import axios from "axios";
+import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Joi from "joi";
+
 const Signup = () => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
@@ -29,24 +30,34 @@ const Signup = () => {
             // Xử lý lỗi ở đây, ví dụ hiển thị thông báo cho người dùng
             return;
         }
+        axios.get(`http://localhost:8082/api/check-email/${email}`)
+            .then((response) => {
+                if (response.data.exists) {
+                    alert('Email đã tồn tại');
+                    return;
+                }
 
-        fetch('http://localhost:8082/api/signup', {
-            method: 'POST',
-            body: JSON.stringify({
-                name,
-                email,
-                number,
-                password,
-                confirmPassword,
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                navigate("/signin")
-                alert("Đăng kí thành công")
+                fetch('http://localhost:8082/api/signup', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        number,
+                        password,
+                        confirmPassword,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        navigate("/signin")
+                        alert("Đăng kí thành công")
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
             })
             .catch((error) => {
                 console.error(error);
