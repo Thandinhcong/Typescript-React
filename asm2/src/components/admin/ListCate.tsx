@@ -14,7 +14,16 @@ const ListCate = () => {
                 setCategories(data.categorys);
             });
     }, [])
-
+    const handleDeleteProduct = (id: number | string) => {
+        axios.get(`http://localhost:8082/api/products/${id}`)
+            .then(() => {
+                const confilm = window.confirm("Bạn có muốn xóa không ?");
+                if (confilm) {
+                    const newData = products.filter((product) => product._id !== id);
+                    setCategories(newData);
+                }
+            })
+    }
     useEffect(() => {
         axios.get(`http://localhost:8082/api/products?category=${selectedCategory}`)
             .then(({ data }) => {
@@ -59,7 +68,7 @@ const ListCate = () => {
                                 <td> {product.description}</td>
 
                                 <td>
-                                    <button className="btn btn-primary me-2">Xóa</button>
+                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>
                                     <button className="btn btn-primary">Sửa</button>
                                 </td>
                             </tr>

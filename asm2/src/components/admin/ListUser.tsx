@@ -12,12 +12,26 @@ const ListUser = () => {
                 console.log(data);
             })
         // console.log(data);
-
     }, [])
+    const handleDeleteUser = (id: string | number) => {
+        axios.delete(`http://localhost:8082/api/users/${id}`)
+            .then((response) => {
+                // Xóa user khỏi state
+                const confilm = window.confirm("Bạn có muốn xóa không ?")
+                if (confilm) {
+                    const newData = users.filter((user) => user._id !== id)
+                    setUsers(newData);
+                    console.log(response.data);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return <div className="col-10 pt-5">
         <h3>Tài khoản người dùng</h3>
         <div>
-            <table className="table table-bordered" style={{ overflow: "auto" }}>
+            <table className="table table-bordered" >
                 <thead>
                     <tr>
                         <th>#</th>
@@ -26,7 +40,7 @@ const ListUser = () => {
                         <th>Mật khẩu</th>
                         <th>Vai trò</th>
                         <th>Thao tác</th>
-                        <th style={{ overflow: "auto" }}></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -39,10 +53,9 @@ const ListUser = () => {
                                 <td>{user.password}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    <button className="btn btn-primary me-2">Xóa</button>
-                                    <button className="btn btn-primary">Sửa</button>
+                                    <button onClick={() => handleDeleteUser(user._id)} className="btn btn-primary me-2">Xóa</button>
                                 </td>
-                                <td style={{ overflow: "auto" }}></td>
+
                             </tr>
                         )
                     })}
