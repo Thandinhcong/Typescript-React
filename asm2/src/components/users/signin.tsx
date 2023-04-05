@@ -18,7 +18,7 @@ const Signin = () => {
                 accessToken,
                 ...user,
             })
-            if (user.role) {
+            if (user.role === "admin") {
                 navigate("/admin")
                 alert("Đăng nhập admin thành công !")
             } else {

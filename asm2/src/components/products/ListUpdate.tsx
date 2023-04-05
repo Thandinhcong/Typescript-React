@@ -1,8 +1,40 @@
-import { useState } from "react";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { updateForm, updateSchema } from "../../interfaces/Product";
+import { getById, update } from "../../api/product";
+import { useParams, useNavigate } from "react-router-dom";
 const ListUpdateProduct = () => {
-    const [product, setProduct] = useState({});
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors } } = useForm<updateForm>({
+        resolver: yupResolver(updateSchema),
+        defaultValues: async () => {
+            if (id) {
+                console.log("id :", id);
+                return await fetchProductById(id)
+            }
+        }
+    });
+    const onSubmit = async (data: updateForm) => {
+        try {
+            if (id) {
+                const response = await update(id, data);
+                console.log(response);
+                navigate("/admin")
+            }
+        } catch (error) {
+            console.log(error);
 
+        }
+
+    }
+    const fetchProductById = async (id: string | number) => {
+        const { data } = await getById(id)
+        console.log("data :", data);
+
+        return data.products;
+    }
 
     return <div className="row row-cols-2 pt-4 container col-10 border p-2 bg-body">
         <div className="col-4">
@@ -13,18 +45,41 @@ const ListUpdateProduct = () => {
             <hr />
         </div>
         <div className="col-8">
-            <form action="">
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <h5>Thông tin sản phẩm</h5>
                 <label htmlFor="">Tên sản phẩm</label>
-                <input type="text" className="form-control mb-3" />
+                <input
+                    type="text"
+                    className="form-control mb-3"
+                    {...register("name")}
+                />
+                <p className=" text-danger" style={{ fontSize: "10px" }}>
+                    {errors.name && errors.name.message}
+                </p>
                 <div className="row row-cols-2 ">
                     <div>
                         <label htmlFor="">Giá gốc</label>
-                        <input type="number" className="form-control mb-3" />
+                        <input
+                            type="number"
+                            className="form-control mb-3"
+                            {...register("original_price")}
+                        />
+                        <p className=" text-danger" style={{ fontSize: "10px" }}>
+                            {errors.original_price && errors.original_price.message}
+                        </p>
                     </div>
+
                     <div>
                         <label htmlFor="">Giá khuyến mãi</label>
-                        <input type="number" className="form-control mb-3" />
+                        <input
+                            type="number"
+                            className="form-control mb-3"
+
+                            {...register("price")}
+                        />
+                        <p className=" text-danger" style={{ fontSize: "10px" }}>
+                            {errors.price && errors.price.message}
+                        </p>
                     </div>
                     <div>
                         <label htmlFor="">Danh mục</label>
@@ -36,10 +91,22 @@ const ListUpdateProduct = () => {
                     </div>
                 </div>
                 <label htmlFor="">Đặc điểm nổi bật</label>
-                <textarea name="" id="" className="form-control mb-3"></textarea>
+                <textarea
+                    className="form-control mb-3"
+                    {...register("description")}
+                ></textarea>
+                <p className=" text-danger" style={{ fontSize: "10px" }}>
+                    {errors.description && errors.description.message}
+                </p>
                 <label htmlFor="">Mô tả dài</label>
-                <textarea name="" id="" className="form-control mb-3"></textarea>
-                <button className="btn btn-danger">Thêm mới</button>
+                <textarea
+                    className="form-control mb-3"
+                    {...register("description")}
+                ></textarea>
+                <p className=" text-danger mb-2" style={{ fontSize: "10px" }}>
+                    {errors.description && errors.description.message}
+                </p>
+                <button type="submit" className="btn btn-danger">Cập nhật</button>
             </form>
         </div>
     </div>

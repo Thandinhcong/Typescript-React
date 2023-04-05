@@ -9,7 +9,7 @@ const UpdateProduct = () => {
             <HeaderAdmin />
             <div className="row row-cols-2">
                 <AdminCate />
-
+                <ListUpdateProduct />
             </div>
         </div>
     )

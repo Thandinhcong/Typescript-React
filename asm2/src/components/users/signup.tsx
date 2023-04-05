@@ -15,7 +15,7 @@ const Signup = () => {
             const response = await signup(data)
             console.log(response);
             navigate('/signin')
-
+            alert("Đăng kí thành công")
         } catch (err) {
             alert("Email đã tồn tại")
 

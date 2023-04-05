@@ -81,6 +81,7 @@ const ListCate = () => {
                 </tbody>
             </table>
         </div>
+        <Link to="/admin/add-product" className="btn btn-primary mt-2 ">Thêm mới sản phẩm</Link>
     </div>
 }
 
