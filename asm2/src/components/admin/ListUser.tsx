@@ -28,9 +28,9 @@ const ListUser = () => {
                 console.log(error);
             });
     };
-    return <div className="col-10 pt-5">
+    return <div className="col-10 pt-5 grid-margin">
         <h3>Tài khoản người dùng</h3>
-        <div>
+        <div className="table-responsive">
             <table className="table table-bordered" >
                 <thead>
                     <tr>
@@ -46,7 +46,7 @@ const ListUser = () => {
                 <tbody>
                     {users.map((user, index) => {
                         return (
-                            <tr key={index}>
+                            <tr key={index.toString()}>
                                 <td>{index + 1}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>

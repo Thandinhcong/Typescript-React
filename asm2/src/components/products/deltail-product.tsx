@@ -1,13 +1,29 @@
-import { Link } from "react-router-dom";
-
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Iproduct } from "../../interfaces/Product";
+import { getById } from "../../api/product";
+import Menu from "../layout/Menu";
 const DelTailProduct = () => {
+    const [product, setProduct] = useState<Iproduct>({} as Iproduct)
+    const { id } = useParams();
+    const fetchProduct = async () => {
+        if (id) {
+            const { data } = await getById(id);
+            console.log(data);
+            setProduct(data.products)
+        }
+    }
+    useEffect(() => {
+        fetchProduct();
+    }, [])
     return <div className="">
-        <h3 style={{ marginLeft: "300px" }} className="mb-5">Samsung Galaxy A73 (5G) 256GB</h3>
+        <Menu />
+        <h3 style={{ marginLeft: "300px" }} className="mb-5">{product.name}</h3>
         <section className="container row row-cols-2">
-            <img src="./samsung.png" alt="product" className="row-cols-4" />
-            <section className="row-cols-8 ">
-                <span className="fs-4 text-danger">11.690.000 đ</span> <span className="text-decoration-line-through text-secondary">12.999.000đ</span>
-                <p className="mt-5"> Mô tả ngắn: Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan tâm đến thiết kế sản phẩm trước. Với phiên bản A73, Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến cảm giác sang trọng và tinh tế. </p>
+            <img src="https://salt.tikicdn.com/ts/product/43/35/ca/4630727d5a4eee189dc3dacae0bf39d7.jpg" alt="product" className="row-cols-4" />
+            <section className="row-cols-8 mt-4 ">
+                <span className="fs-4 text-danger">{product.price}đ</span> <span className="text-decoration-line-through text-secondary">{product.original_price}đ</span>
+                <p className="mt-5">{product.description} </p>
             </section>
         </section>
         <section className=" row row-cols-2 p-5">

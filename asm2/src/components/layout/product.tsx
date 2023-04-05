@@ -1,5 +1,5 @@
 import HeaderAdmin from "./HeaderAdmin";
-import ListCate from "./ListCate";
+import ListCate from "../admin/ListCate";
 import AdminCate from "./adminCate";
 
 const AdminProduct = () => {

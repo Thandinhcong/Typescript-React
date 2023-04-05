@@ -1,4 +1,4 @@
-import "../index.css";
+
 const Footer = () => {
     return <footer className="footer p-5">
         <div className="info row row-cols-4 p-5">

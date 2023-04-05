@@ -6,7 +6,8 @@ const HeaderAdmin = () => {
             <p className=" text-light me-5 mt-2">Disboard</p>
             <input type="text" placeholder="Tìm kiếm ..." className="form-control" />
         </div>
-        <p className=" text-light mt-2 d-flex  justify-content-center">Xin chào Thản trần</p>
+        <p className=" text-light mt-2 d-flex  justify-content-center">Xin chào Thản trần   <span className="login-status online"></span></p>
+
     </div>
 }
 export default HeaderAdmin;

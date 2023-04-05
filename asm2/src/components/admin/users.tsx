@@ -1,7 +1,7 @@
-import HeaderAdmin from "./HeaderAdmin";
+import HeaderAdmin from "../layout/HeaderAdmin";
 // import ListCate from "./ListCate";
 import ListUser from "./ListUser";
-import AdminCate from "./adminCate";
+import AdminCate from "../layout/adminCate";
 
 const ListUserAdmin = () => {
     return <div className="container-xxl">
