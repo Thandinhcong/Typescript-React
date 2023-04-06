@@ -10,9 +10,9 @@ const Signup = () => {
         resolver: yupResolver(signupSchema)
     })
 
-    const onSubmit = async (data: SignupForm) => {
+    const onSubmit = async (product: SignupForm) => {
         try {
-            const response = await signup(data)
+            const response = await signup(product)
             console.log(response);
             navigate('/signin')
             alert("Đăng kí thành công")

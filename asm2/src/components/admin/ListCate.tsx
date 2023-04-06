@@ -41,7 +41,7 @@ const ListCate = () => {
                 <div>
                     <p>Danh mục sản phẩm</p>
                     <select name="" id="" className="form-select">
-                        <option value={categories}>--Danh mục sản phẩm--</option>
+                        <option value="">--Danh mục sản phẩm--</option>
                         {categories.map((category) => (<option key={category._id} value={category._id}>{category.name}</option>))}
                     </select>
                 </div>

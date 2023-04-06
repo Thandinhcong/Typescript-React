@@ -11,7 +11,7 @@ export interface IUser {
 export const signupSchema = yup.object({
     name: yup.string().required("Trường dữ liệu bắt buộc"),
     email: yup.string().email("Email sai định dạng").required("Trường dữ liệu bắt buộc"),
-    number: yup.number().min(9).required("Số điện thoại không để trống"),
+    number: yup.number().typeError("Số điện thoại phải là số").positive("Phải là một số dương").min(9, "Tối thiểu 9 số").required("Số điện thoại không để trống"),
     password: yup.string().min(6).required("Trường dữ liệu bắt buộc"),
     confirmPassword: yup.string().oneOf([yup.ref('password')], "Mật khẩu không khớp"),
 })

@@ -1,12 +1,21 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { addForm, addSchema } from "../../interfaces/Product";
+import { addProduct } from "../../api/product";
+import { string } from "joi";
 const AddProduct = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<addForm>({
         resolver: yupResolver(addSchema)
     })
-    const handleOnSubmit = (data: addForm) => {
+    const handleOnSubmit = async (product: addForm) => {
+        try {
+            const response = await addProduct(product);
+            console.log(response);
+
+        } catch (error) {
+
+        }
 
     }
     return (
@@ -65,14 +74,14 @@ const AddProduct = () => {
                         </div>
                         <div>
                             <label htmlFor="" className="mt-3 mb-3">Danh mục</label>
-                            <select className="form-select" {...register("category")}>
+                            <select className="form-select" {...register("categoryId")}>
                                 <option value="">Vui lòng chọn danh mục</option>
-                                <option value="Điện thoại">Điện thoại</option>
-                                <option value="Máy tính">Máy tính</option>
-                                <option value="Tablet">Tablet</option>
+                                <option value="642a7fe3a72296ba8fab007d">Điện thoại</option>
+                                <option value="642a864f479360e7d401496e">Máy tính</option>
+                                <option value="642c614d0ed067d8e625a1b6">Tablet</option>
                             </select>
                             <p className=" text-danger" style={{ fontSize: "10px" }}>
-                                {errors.category && errors.category.message}
+                                {errors.categoryId && errors.categoryId.message}
                             </p>
                         </div>
                     </div>
