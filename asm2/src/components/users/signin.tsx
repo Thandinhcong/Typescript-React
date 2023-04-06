@@ -64,6 +64,7 @@ const Signin = () => {
                             Đăng nhập
                         </button>
                     </form>
+                    <p className='ms-1'>Bạn chưa có tài khoản? <Link to="/signup">Đăng kí</Link></p>
                     <h5 className="mt-3">Hoặc đăng nhập bằng</h5>
                     <div className="icon mt-3">
                         <Link to="#">

@@ -21,7 +21,7 @@ const DeltailCart = () => {
             </section>
             <section className="row row-cols-2 text-danger fs-5 pt-5">
                 <div className="flex-back " style={{ height: "30" }}>
-                    <Link to="/deltail-product" className="d-flex"><span className="material-symbols-outlined text-dark text-decoration-none">arrow_back_ios</span> </Link>
+                    <Link to="/" className="d-flex"><span className="material-symbols-outlined text-dark text-decoration-none">arrow_back_ios</span> </Link>
                 </div>
                 <p>Giỏ hàng</p>
             </section>

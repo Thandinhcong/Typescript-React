@@ -8,11 +8,11 @@ const Footer = () => {
                 <p>Mua hàng từ xa</p>
                 <h4>Phương thức thanh toán</h4>
                 <div className="pay">
-                    <img src="./pay1.png" alt="" />
-                    <img src="./pay1.png" alt="" />
-                    <img src="./pay3.png" alt="" />
-                    <img src="./pay4.png" alt="" />
-                    <img src="./pay5.png" alt="" />
+                    <img src="../pay1.png" alt="" />
+                    <img src="../pay1.png" alt="" />
+                    <img src="../pay3.png" alt="" />
+                    <img src="../pay4.png" alt="" />
+                    <img src="../pay5.png" alt="" />
                 </div>
             </div>
             <div className="contact">
@@ -22,7 +22,7 @@ const Footer = () => {
                 <h4>Đối tác và dịch vụ</h4>
                 <p>Điện thoại -Máy tính</p>
                 <h4>Trung tâm bảo hành uỷ quyền Apple</h4>
-                <img src="./pay2.png" alt="" />
+                <img src="../pay2.png" alt="" />
             </div>
             <div className="service">
                 <p>MUa hàng và thanh toán online</p>

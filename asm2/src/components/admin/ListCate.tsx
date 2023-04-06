@@ -7,12 +7,17 @@ import { Link } from "react-router-dom";
 const ListCate = () => {
     const [products, setProducts] = useState<Iproduct[]>([]);
     const [categories, setCategories] = useState<ICategory[]>([]);
-    const [selectedCategory, setSelectedCategory] = useState<string>('');
 
     useEffect(() => {
         axios.get("http://localhost:8082/api/categorys")
             .then(({ data }) => {
                 setCategories(data.categorys);
+            });
+    }, [])
+    useEffect(() => {
+        axios.get("http://localhost:8082/api/products")
+            .then(({ data }) => {
+                setProducts(data.products);
             });
     }, [])
     const handleDeleteProduct = (id: number | string) => {
@@ -26,15 +31,7 @@ const ListCate = () => {
                 }
             })
     }
-    const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const category = event.target.value;
-        setSelectedCategory(category);
 
-        axios.get(`http://localhost:8082/api/products?category=${category}`)
-            .then(({ data }) => {
-                setProducts(data.products);
-            });
-    }
 
     return <div className="col-10 pt-5">
         <h3>Điện thoại</h3>
@@ -43,8 +40,8 @@ const ListCate = () => {
                 <p className="mt-4">Bộ lọc :</p>
                 <div>
                     <p>Danh mục sản phẩm</p>
-                    <select name="" id="" className="form-select" onChange={handleCategoryChange}>
-                        <option value="">--Danh mục sản phẩm--</option>
+                    <select name="" id="" className="form-select">
+                        <option value={categories}>--Danh mục sản phẩm--</option>
                         {categories.map((category) => (<option key={category._id} value={category._id}>{category.name}</option>))}
                     </select>
                 </div>
@@ -57,6 +54,7 @@ const ListCate = () => {
                         <th>Gia tiền</th>
                         <th>Giá gốc</th>
                         <th>Mô tả</th>
+                        <th>Đặc điểm nổi bật</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -69,7 +67,7 @@ const ListCate = () => {
                                 <td> {product.price} </td>
                                 <td>{product.original_price}</td>
                                 <td> {product.description}</td>
-
+                                <td>{product.salient_features}</td>
                                 <td>
                                     <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>
                                     <Link to={`/admin/update-product/${product._id}`} className="btn btn-primary">Sửa</Link>

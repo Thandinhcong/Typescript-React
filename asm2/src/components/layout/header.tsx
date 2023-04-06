@@ -20,12 +20,12 @@ const HeaderPage = () => {
     return (
         <header>
             <div className=" bg-danger align-items-center d-flex" style={{ height: "100px" }}>
-                <Link to="/"> <img src="./thantran.png" width={50} alt="logo" style={{ marginRight: "100px", marginLeft: "200px" }} /></Link>
+                <Link to="/"> <img src="../thantran.png" width={50} alt="logo" style={{ marginRight: "100px", marginLeft: "200px" }} /></Link>
                 <input type="text" placeholder="Search" style={{ width: "768px", marginRight: "200px" }} className="form-control flex-fill g-col-6" />
                 {loggedIn ? (
                     <>
-                        <div className="text-white me-3">Xin chào, {loggedIn.name}</div>
-                        <button onClick={handleLogout} className="btn btn-primary ms-3" style={{ marginRight: "30px" }} > Logout</button>
+                        <div className="text-white me-3">Xin chào : {loggedIn.name}</div>
+                        <button onClick={handleLogout} className="btn btn-primary ms-3 " style={{ marginRight: "30px" }} > Logout</button>
                     </>
                 ) : (
                     <>

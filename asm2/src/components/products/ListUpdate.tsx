@@ -93,10 +93,10 @@ const ListUpdateProduct = () => {
                 <label htmlFor="">Đặc điểm nổi bật</label>
                 <textarea
                     className="form-control mb-3"
-                    {...register("description")}
+                    {...register("salient_features")}
                 ></textarea>
                 <p className=" text-danger" style={{ fontSize: "10px" }}>
-                    {errors.description && errors.description.message}
+                    {errors.salient_features && errors.salient_features.message}
                 </p>
                 <label htmlFor="">Mô tả dài</label>
                 <textarea
