@@ -2,19 +2,29 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { addForm, addSchema } from "../../interfaces/Product";
 import { addProduct } from "../../api/product";
-import { string } from "joi";
+import { useEffect, useState } from "react";
+import { ICategory } from "../../interfaces/category";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AddProduct = () => {
-
+    const navigate = useNavigate();
+    const [categorys, setCategory] = useState<ICategory[]>([])
+    useEffect(() => {
+        axios.get("http://localhost:8082/api/categorys")
+            .then(({ data }) => {
+                setCategory(data.categorys);
+            });
+    }, [])
     const { register, handleSubmit, formState: { errors } } = useForm<addForm>({
         resolver: yupResolver(addSchema)
     })
     const handleOnSubmit = async (product: addForm) => {
         try {
             const response = await addProduct(product);
-            console.log(response);
-
+            alert("Thêm sản phẩm thành công")
+            navigate("/admin");
         } catch (error) {
-
+            alert("Bạn không thể thêm sản phẩm !")
         }
 
     }
@@ -76,9 +86,9 @@ const AddProduct = () => {
                             <label htmlFor="" className="mt-3 mb-3">Danh mục</label>
                             <select className="form-select" {...register("categoryId")}>
                                 <option value="">Vui lòng chọn danh mục</option>
-                                <option value="642a7fe3a72296ba8fab007d">Điện thoại</option>
-                                <option value="642a864f479360e7d401496e">Máy tính</option>
-                                <option value="642c614d0ed067d8e625a1b6">Tablet</option>
+                                {categorys.map((e) => (
+                                    <option key={e._id} value={e._id}>{e.name}</option>
+                                ))}
                             </select>
                             <p className=" text-danger" style={{ fontSize: "10px" }}>
                                 {errors.categoryId && errors.categoryId.message}

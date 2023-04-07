@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Iproduct } from "../../interfaces/Product";
 import { getById } from "../../api/product";
 import Menu from "../layout/Menu";
+import CommentForm from "../../comments/ListComment";
 const DelTailProduct = () => {
     const [product, setProduct] = useState<Iproduct>({} as Iproduct)
     const { id } = useParams();
@@ -63,6 +64,7 @@ const DelTailProduct = () => {
             <p>Kích thước và trọng lượng của chiếc điện thoại rất vừa phải và dĩ nhiên sẽ không chiếm quá nhiều diện tích trong túi xách và có thể di chuyển dễ dàng.</p>
         </section>
         <button type="submit" className="btn tbn-light border" style={{ marginLeft: "500px", width: 300 }}>Xem thêm</button>
+        <CommentForm />
     </div>
 }
 export default DelTailProduct;

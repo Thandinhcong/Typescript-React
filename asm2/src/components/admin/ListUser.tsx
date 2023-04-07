@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IUser } from "../../interfaces/User";
+import HeaderAdmin from "../layout/HeaderAdmin";
 
 const ListUser = () => {
     const [users, setUsers] = useState<IUser[]>([]);
@@ -28,7 +29,7 @@ const ListUser = () => {
                 console.log(error);
             });
     };
-    return <div className="col-10 pt-5 grid-margin">
+    return <div className="col-10 pt-5 ">
         <h3>Tài khoản người dùng</h3>
         <div className="table-responsive">
             <table className="table table-bordered" >

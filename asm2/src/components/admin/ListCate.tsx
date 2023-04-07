@@ -70,7 +70,7 @@ const ListCate = () => {
                                 <td>{product.salient_features}</td>
                                 <td>
                                     <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>
-                                    <Link to={`/admin/update-product/${product._id}`} className="btn btn-primary">Sửa</Link>
+                                    <Link to={`update-product/${product._id}`} className="btn btn-primary">Sửa</Link>
                                 </td>
                             </tr>
 

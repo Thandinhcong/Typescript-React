@@ -7,12 +7,12 @@ const AdminCate = () => {
                 <p className="mt-2">Điện thoại</p>
             </div>
         </Link>
-        <Link to="" className="text-decoration-none text-dark">
+        <Link to="comment" className="text-decoration-none text-dark">
             <div className="d-flex gap-1 mt-4">
                 <span className="material-symbols-outlined fs-1">
                     laptop_mac
                 </span>
-                <p className="mt-2">Laptop</p>
+                <p className="mt-2">Comment</p>
             </div>
         </Link>
         <Link to="" className="text-decoration-none text-dark">
@@ -31,7 +31,7 @@ const AdminCate = () => {
                 <p className="mt-2">ÂM thanh</p>
             </div>
         </Link>
-        <Link to="/admin/user" className="text-decoration-none text-dark">
+        <Link to="user" className="text-decoration-none text-dark">
             <div className="d-flex gap-1 mt-4">
                 <span className="material-symbols-outlined fs-1">
                     account_circle

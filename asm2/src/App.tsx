@@ -11,6 +11,7 @@ import ListUserAdmin from "./components/admin/users";
 import DelTailProduct from "./components/products/deltail-product";
 import UpdateProduct from "./components/admin/updateProduct";
 import ListAddProduct from "./components/admin/ListAddProduct";
+import LayOutAdmin from "./components/layout/LayOutAdmin";
 function App() {
 
   return <BrowserRouter>
@@ -22,10 +23,12 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/admin" element={<AdminProduct />} />
-      <Route path="/admin/user" element={<ListUserAdmin />} />
-      <Route path="/admin/update-product/:id" element={<UpdateProduct />} />
-      <Route path="/admin/add-product" element={<ListAddProduct />} />
+      <Route path="/admin" element={<LayOutAdmin />} >
+        <Route index element={<AdminProduct />} />
+        <Route path="user" element={<ListUserAdmin />} />
+        <Route path="update-product/:id" element={<UpdateProduct />} />
+        <Route path="add-product" element={<ListAddProduct />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 

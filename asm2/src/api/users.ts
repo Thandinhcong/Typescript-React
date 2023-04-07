@@ -9,6 +9,7 @@ export const signup = (data: SignupForm) => {
 
 
 export const signin = (data: SigninForm) => {
+
     const uri = "/signin"
     return instance.post(uri, data)
 }
