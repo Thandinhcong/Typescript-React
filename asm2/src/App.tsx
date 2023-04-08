@@ -12,6 +12,7 @@ import DelTailProduct from "./components/products/deltail-product";
 import UpdateProduct from "./components/admin/updateProduct";
 import ListAddProduct from "./components/admin/ListAddProduct";
 import LayOutAdmin from "./components/layout/LayOutAdmin";
+import ListComment from "./components/admin/ListComment";
 function App() {
 
   return <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         <Route path="user" element={<ListUserAdmin />} />
         <Route path="update-product/:id" element={<UpdateProduct />} />
         <Route path="add-product" element={<ListAddProduct />} />
+        <Route path="danh-sach-binh-luan" element={<ListComment />} />
       </Route>
     </Routes>
   </BrowserRouter>

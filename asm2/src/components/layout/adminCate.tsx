@@ -7,7 +7,7 @@ const AdminCate = () => {
                 <p className="mt-2">Điện thoại</p>
             </div>
         </Link>
-        <Link to="comment" className="text-decoration-none text-dark">
+        <Link to="danh-sach-binh-luan" className="text-decoration-none text-dark">
             <div className="d-flex gap-1 mt-4">
                 <span className="material-symbols-outlined fs-1">
                     laptop_mac

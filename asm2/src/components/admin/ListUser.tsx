@@ -47,7 +47,7 @@ const ListUser = () => {
                 <tbody>
                     {users.map((user, index) => {
                         return (
-                            <tr key={index.toString()}>
+                            <tr key={user._id}>
                                 <td>{index + 1}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
