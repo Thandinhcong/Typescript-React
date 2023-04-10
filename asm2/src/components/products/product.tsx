@@ -5,7 +5,7 @@ type Props = {
     data: Iproduct
 }
 const Product = ({ data }: Props) => {
-    return <div>
+    return <div className="">
         <Link to={`product/${data._id}`}><img src="./product1.png" alt="" /></Link>
         <div className="infoProduct mb-4">
             <Link to={`/product/${data._id}`} className="text-decoration-none text-dark"><p className="fs-5 g-col-4 mb-3">{data.name}</p></Link>

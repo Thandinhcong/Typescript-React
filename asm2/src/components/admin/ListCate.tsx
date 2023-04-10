@@ -26,7 +26,7 @@ const ListCate = () => {
                 const confilm = window.confirm("Bạn có muốn xóa không ?");
                 if (confilm) {
                     const newData = products.filter((product) => product._id !== id);
-                    setCategories(newData);
+                    setProducts(newData);
                     alert("Xóa sản phẩm thành công !")
                 }
             })
@@ -55,6 +55,7 @@ const ListCate = () => {
                         <th>Giá gốc</th>
                         <th>Mô tả</th>
                         <th>Đặc điểm nổi bật</th>
+                        <th>Anh san pham</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -67,6 +68,7 @@ const ListCate = () => {
                                 <td> {product.price} </td>
                                 <td>{product.original_price}</td>
                                 <td> {product.description}</td>
+                                <td><img src={product.image} alt="" /></td>
                                 <td>{product.salient_features}</td>
                                 <td>
                                     <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>

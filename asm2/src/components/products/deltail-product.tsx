@@ -3,14 +3,13 @@ import { useState, useEffect } from "react";
 import { Iproduct } from "../../interfaces/Product";
 import { getById } from "../../api/product";
 import Menu from "../layout/Menu";
-import CommentForm from "../../comments/ListComment";
+import CommentForm from "../../comments/AddComment";
 const DelTailProduct = () => {
     const [product, setProduct] = useState<Iproduct>({} as Iproduct)
     const { id } = useParams();
     const fetchProduct = async () => {
         if (id) {
             const { data } = await getById(id);
-            console.log(data);
             setProduct(data.products)
         }
     }

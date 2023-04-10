@@ -9,8 +9,6 @@ const HomeFage = () => {
         axios.get("http://localhost:8082/api/products")
             .then(({ data }) => {
                 setProduct(data.products)
-                console.log("data :", data);
-
             })
 
     }, [])

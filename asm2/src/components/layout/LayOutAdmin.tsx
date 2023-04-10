@@ -5,7 +5,7 @@ const LayOutAdmin = () => {
     const user = JSON.parse(localStorage.getItem("user") as string);
     const navigate = useNavigate();
     useEffect(() => {
-        if (user.role !== "admin") {
+        if (user && user.role !== "admin") {
             alert("Bạn không thể truy cập vào trang này")
             return navigate("/")
         }

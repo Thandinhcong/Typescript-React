@@ -1,16 +1,34 @@
 import { Outlet, Link } from "react-router-dom";
 import HeaderAdmin from "../layout/HeaderAdmin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IComment } from "../../interfaces/comment";
-
+import axios from "axios";
+import AdminCate from "../layout/adminCate";
 const ListComment = () => {
     const [comments, setComment] = useState<IComment[]>([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8082/api/comments")
+            .then(({ data }) => {
+                setComment(data.comments)
+            })
+    }, [])
+    const handleDeleteCmt = (id: string | number) => {
+        axios.delete(`http://localhost:8082/api/comments/${id}`)
+            .then(() => {
+                const confilm = window.confirm("bạn có muốn xóa không ?")
+                if (confilm) {
+                    const newData = comments.filter((item) => item._id !== id)
+                    setComment(newData)
+                }
+            })
+    }
     return <div className="container-xxl">
         <HeaderAdmin />
         <div className=" row row-cols-2">
             <Outlet />
-            <Link to='/admin' className="fs-2 text-danger col-2">Trở lại</Link>
-            <div className="col-10">
+            <AdminCate />
+            <div className="col-10 mt-5">
                 <h5>Danh sách bình luận</h5>
                 <table className="table table-bordered table-responsive" >
                     <thead>
@@ -18,23 +36,23 @@ const ListComment = () => {
                             <th>#</th>
                             <th>context</th>
                             <th>user bình luận</th>
-                            <th>Thời gian bình luận</th>
                             <th>Sản phẩm bình luận</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <tr key={product._id}>
+                        {comments.map((item, index) => {
+                            return <tr
+                                key={item._id}>
                                 <td>{index + 1}</td>
-                                <td>{product.name}</td>
-                                <td> {product.price} </td>
-                                <td>{product.original_price}</td>
-                                <td> {product.description}</td>
-                                <td>{product.salient_features}</td>
+                                <td>{item.description}</td>
+                                <td> {item.userId} </td>
+                                <td>{item.productId}</td>
                                 <td>
-                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>
+                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteCmt(item._id)}>Xóa</button>
                                 </td>
-                            </tr> */}
+                            </tr>
+                        })}
                     </tbody>
                 </table>
             </div>

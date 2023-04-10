@@ -8,7 +8,6 @@ const Menu = () => {
     const fetchProduct = async () => {
         if (id) {
             const { data } = await getById(id);
-            console.log(data);
             setProduct(data.products)
         }
     }
