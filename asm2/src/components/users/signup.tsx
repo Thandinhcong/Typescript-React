@@ -96,7 +96,7 @@ const Signup = () => {
                 </div>
                 <div className="logo col-4">
                     <Link to="/">
-                        <img src="./thantran.png" alt="" />
+                        <img src="./logo.png" alt="" />
                     </Link>
                 </div>
             </div>

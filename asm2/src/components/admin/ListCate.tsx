@@ -9,19 +9,19 @@ const ListCate = () => {
     const [categories, setCategories] = useState<ICategory[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8082/api/categorys")
+        axios.get("http://localhost:8080/api/categorys")
             .then(({ data }) => {
                 setCategories(data.categorys);
             });
     }, [])
     useEffect(() => {
-        axios.get("http://localhost:8082/api/products")
+        axios.get("http://localhost:8080/api/products")
             .then(({ data }) => {
                 setProducts(data.products);
             });
     }, [])
     const handleDeleteProduct = (id: number | string) => {
-        axios.delete(`http://localhost:8082/api/products/${id}`)
+        axios.delete(`http://localhost:8080/api/products/${id}`)
             .then(() => {
                 const confilm = window.confirm("Bạn có muốn xóa không ?");
                 if (confilm) {
@@ -68,10 +68,10 @@ const ListCate = () => {
                                 <td> {product.price} </td>
                                 <td>{product.original_price}</td>
                                 <td> {product.description}</td>
-                                <td><img src={product.image} alt="" /></td>
                                 <td>{product.salient_features}</td>
+                                <td><img src={product.image} alt="" /></td>
                                 <td>
-                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id)}>Xóa</button>
+                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id as string | number)}>Xóa</button>
                                     <Link to={`update-product/${product._id}`} className="btn btn-primary">Sửa</Link>
                                 </td>
                             </tr>

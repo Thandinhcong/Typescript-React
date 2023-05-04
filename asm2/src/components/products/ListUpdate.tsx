@@ -32,7 +32,6 @@ const ListUpdateProduct = () => {
     const fetchProductById = async (id: string | number) => {
         const { data } = await getById(id)
         console.log("data :", data);
-
         return data.products;
     }
 

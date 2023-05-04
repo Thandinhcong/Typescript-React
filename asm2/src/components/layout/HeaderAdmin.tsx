@@ -9,7 +9,7 @@ const HeaderAdmin = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState<IUser>()
     useEffect(() => {
-        axios.get("http://localhost:8082/api/users")
+        axios.get("http://localhost:8080/api/users")
             .then(({ data }) => setUser(data.users))
     }, [])
 
@@ -27,7 +27,7 @@ const HeaderAdmin = () => {
         <div className="row row-cols-2 bg-primary">
             <div className="d-flex align-items-center">
                 <Link to="/admin">
-                    <img src="/thantran.png" alt="" width={50} className="ms-3 me-4" />
+                    <img src="../logo.png" alt="" width={50} className="ms-3 me-4" />
                 </Link>
                 <p className="text-light me-5 mt-2">Disboard</p>
                 <input type="text" placeholder="Tìm kiếm ..." className="form-control" />

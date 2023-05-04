@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IUser } from "../../interfaces/User";
-import HeaderAdmin from "../layout/HeaderAdmin";
 
 const ListUser = () => {
     const [users, setUsers] = useState<IUser[]>([]);
     useEffect(() => {
-        axios.get("http://localhost:8082/api/users")
+        axios.get("http://localhost:8080/api/users")
             .then(({ data }) => {
 
                 setUsers(data.users);
@@ -15,7 +14,7 @@ const ListUser = () => {
         // console.log(data);
     }, [])
     const handleDeleteUser = (id: string | number) => {
-        axios.delete(`http://localhost:8082/api/users/${id}`)
+        axios.delete(`http://localhost:8080/api/users/${id}`)
             .then((response) => {
                 // Xóa user khỏi state
                 const confilm = window.confirm("Bạn có muốn xóa không ?")
@@ -54,7 +53,7 @@ const ListUser = () => {
                                 <td>{user.password}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    <button onClick={() => handleDeleteUser(user._id)} className="btn btn-primary me-2">Xóa</button>
+                                    <button onClick={() => handleDeleteUser(user._id as string | number)} className="btn btn-primary me-2">Xóa</button>
                                 </td>
 
                             </tr>

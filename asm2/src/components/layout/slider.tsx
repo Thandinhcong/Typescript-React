@@ -2,7 +2,7 @@ import { Carousel } from 'react-bootstrap';
 
 const Slider = () => {
     return (
-        <Carousel className=' text-danger p-5 '>
+        <Carousel className=' text-danger p-3 '>
             <Carousel.Item >
                 <img
                     height={400}

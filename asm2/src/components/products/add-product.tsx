@@ -1,16 +1,17 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { addForm, addSchema } from "../../interfaces/Product";
-import { addProduct } from "../../api/product";
+import { UploadImage, addProduct } from "../../api/product";
 import { useEffect, useState } from "react";
 import { ICategory } from "../../interfaces/category";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const AddProduct = () => {
     const navigate = useNavigate();
-    const [categorys, setCategory] = useState<ICategory[]>([])
+    const [categorys, setCategory] = useState<ICategory[]>([]);
+    const [image, setImage] = useState<any>(null);
     useEffect(() => {
-        axios.get("http://localhost:8082/api/categorys")
+        axios.get("http://localhost:8080/api/categorys")
             .then(({ data }) => {
                 setCategory(data.categorys);
             });
@@ -19,8 +20,14 @@ const AddProduct = () => {
         resolver: yupResolver(addSchema)
     })
     const handleOnSubmit = async (product: addForm) => {
+        if (typeof image !== "string") {
+            return;
+        }
+        product.image = image;
         try {
             const response = await addProduct(product);
+            console.log("response:", response);
+
             alert("Thêm sản phẩm thành công")
             navigate("/admin");
         } catch (error) {
@@ -28,6 +35,26 @@ const AddProduct = () => {
         }
 
     }
+    const onChangeFile = async (e: any) => {
+        const files = e.target.files[0];
+        console.log("file", files);
+        if (files) {
+            try {
+                console.log(files);
+                const Res = await UploadImage({
+                    file: files,
+                    upload_preset: "demo-upload",
+                });
+                console.log("rwess", Res);
+                if (Res) {
+                    setImage(Res.data.url);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
+    console.log("image", image);
     return (
         <div className="col-10">
             <h5 className="mt-5">Thêm mới sản phẩm</h5>
@@ -38,9 +65,8 @@ const AddProduct = () => {
                         type="file"
                         className="form-control"
                         id="product-img"
-
+                        onChange={onChangeFile}
                     />
-
                 </div>
                 <div className="col-8">
                     <h5>Thông tin sản phẩm</h5>

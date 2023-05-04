@@ -9,21 +9,12 @@ export const getById = (_id: number | string) => {
     return instance.get(uri)
 }
 export const update = (_id: string, body: updateForm) => {
-    let user = JSON.parse(localStorage.getItem("user") as string);
-    let token = user.accessToken;
     const uri = "/products/" + _id
-    return instance.put(uri, body, {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-        }
-    })
+    return instance.put(uri, body)
 }
 export const addProduct = (product: addForm) => {
     let user = JSON.parse(localStorage.getItem("user") as string);
     let token = user.accessToken;
-    console.log("token", token);
-
     const uri = "/products/"
     return instance.post(uri, product, {
         headers: {
@@ -32,3 +23,16 @@ export const addProduct = (product: addForm) => {
         }
     })
 }
+export const UploadImage = (data: any) => {
+    const name = "dxzlnojyv";
+    return instance.post(
+        `https://api.cloudinary.com/v1_1/${name}/image/upload`,
+        data,
+        {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Accept: "application/json",
+            },
+        }
+    );
+};

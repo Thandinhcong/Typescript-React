@@ -8,13 +8,13 @@ const ListComment = () => {
     const [comments, setComment] = useState<IComment[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8082/api/comments")
+        axios.get("http://localhost:8080/api/comments")
             .then(({ data }) => {
                 setComment(data.comments)
             })
     }, [])
     const handleDeleteCmt = (id: string | number) => {
-        axios.delete(`http://localhost:8082/api/comments/${id}`)
+        axios.delete(`http://localhost:8080/api/comments/${id}`)
             .then(() => {
                 const confilm = window.confirm("bạn có muốn xóa không ?")
                 if (confilm) {
@@ -49,7 +49,7 @@ const ListComment = () => {
                                 <td> {item.userId} </td>
                                 <td>{item.productId}</td>
                                 <td>
-                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteCmt(item._id)}>Xóa</button>
+                                    <button className="btn btn-primary me-2" onClick={() => handleDeleteCmt(item._id as string | number)}>Xóa</button>
                                 </td>
                             </tr>
                         })}

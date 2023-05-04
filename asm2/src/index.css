@@ -119,3 +119,91 @@
 .admin-cate a:hover {
   color: red;
 }
+
+.form-header {
+  display: flex;
+  height: 40px;
+
+}
+
+.form-header input {
+  /* border: 2px solid #000; */
+  width: 400px;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+  border: none;
+  background-color: white;
+}
+
+.form-header input:focus {
+  outline: none;
+  /* width: 500px; */
+}
+
+.form-header button {
+  border-radius: 0 5px 5px 0;
+  color: black;
+  border: none;
+  background-color: white;
+}
+
+.products {
+  border: 1px solid rgb(178, 162, 162);
+  position: relative;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 8px 5px #888888;
+  margin-bottom: 50px;
+  width: 230px;
+}
+
+.products:hover {
+  background-color: #faf3f3;
+  scale: 1;
+}
+
+.infoProduct p:hover {
+  color: blue;
+}
+
+.infoProduct p,
+.infoProduct span,
+.infoProduct p {
+  margin-left: 10px;
+}
+
+.list-product {
+  border-radius: 5px;
+  grid-gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.products-item {
+  width: 50px;
+  font-size: 12px;
+  color: white;
+  height: 20px;
+  position: relative;
+  top: 10px;
+  left: -5px;
+}
+
+.cate-phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-left: 500px;
+}
+
+.products-item {
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
