@@ -1,16 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Input, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import axios from "axios";
 interface User {
     name: string;
 }
 
 const HeaderPage = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [loggedIn, setLoggedIn] = useState<User | null>(() => {
         const user = localStorage.getItem('user');
         return user ? JSON.parse(user) : null;
     });
+    useEffect(() => {
+        axios.get('http://localhost:8080/api/products')
+            .then(res => {
+                setProducts(res.data.products);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, []);
+    const handleSearch = () => {
+        const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+    };
 
+    //log out
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('user');
@@ -25,12 +46,19 @@ const HeaderPage = () => {
                     phone_in_talk
                 </span>
                 <p className='text-light fs-5 me-5 mt-3'> 05238920562</p>
-                <form action="" className='form-header ms-5'>
-                    <input type="text" placeholder="Search" />
-                    <button><span className="material-symbols-outlined">
-                        search
-                    </span></button>
-                </form>
+                <div>
+                    <Input.Search
+                        placeholder="Search for products..."
+                        enterButton={<SearchOutlined />}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onSearch={handleSearch}
+                    />
+                    <ul>
+                        {filteredProducts.map(product => (
+                            <a href={product.id} className='search-results'><li key={product.id}>{product.name}</li></a>
+                        ))}
+                    </ul>
+                </div>
                 {loggedIn ? (
                     <>
                         <div className="text-white me-3 ms-5">Xin chào : {loggedIn.name}</div>

@@ -69,7 +69,7 @@ const ListCate = () => {
                                 <td>{product.original_price}</td>
                                 <td> {product.description}</td>
                                 <td>{product.salient_features}</td>
-                                <td><img src={product.image} alt="" /></td>
+                                <td><img src={product.image} alt="" width={100} /></td>
                                 <td>
                                     <button className="btn btn-primary me-2" onClick={() => handleDeleteProduct(product._id as string | number)}>Xóa</button>
                                     <Link to={`update-product/${product._id}`} className="btn btn-primary">Sửa</Link>

@@ -32,6 +32,8 @@ const AddProduct = () => {
             navigate("/admin");
         } catch (error) {
             alert("Bạn không thể thêm sản phẩm !")
+            console.log(error);
+
         }
 
     }
